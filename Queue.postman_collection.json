@@ -1,0 +1,240 @@
+{
+	"info": {
+		"_postman_id": "9e61223f-a216-4acf-8679-ae074311f856",
+		"name": "Queue",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add Queue",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Paszporty\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/admin/queue",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"admin",
+						"queue"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Agent",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Janina Nowacka\",\n\t\"active\": true,\n\t\"position\": \"młodszy specjalista\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/admin/agent",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"admin",
+						"agent"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete agent",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"John Kowalsky\",\n\t\"position\": \"Senior officer\",\n\t\"active\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/admin/agent?id=5eb8a9d0679190936da6db05",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"admin",
+						"agent"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "5eb8a9d0679190936da6db05"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Assign Queue",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"agentId\": \"5eb8a9cd679190936da6db03\",\n\t\"queueId\": \"5eb8a82b808053746d516683\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/admin/assignQueue",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"admin",
+						"assignQueue"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UnassignQueue",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"5eb8a82b808053746d516683\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/client/addToQueue",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"client",
+						"addToQueue"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add To Queue (agent)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"queueId\": \"5eb8a82b808053746d516683\",\n\t\"clientId\": \"123123123123123123123123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/agent/addClientToQueue",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"agent",
+						"addClientToQueue"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove from Queue (agent)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"queueId\": \"5eb8a82b808053746d516683\",\n\t\"clientId\": \"123123123123123123123123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/agent/removeClientFromQueue",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"agent",
+						"removeClientFromQueue"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add To Queue (client)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"5eb8a82b808053746d516683\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/client/addToQueue",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"client",
+						"addToQueue"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
