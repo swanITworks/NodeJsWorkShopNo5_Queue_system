@@ -1,0 +1,79 @@
+<h1>Queue management</h1>
+
+<h2> Agent details:</h2>
+<table>
+  <tbody>
+  <tr>
+    <td><b>Name:</b></td>
+    <td>{{ name }}</td>
+  </tr>
+  <tr>
+    <td><b>Position:</b></td>
+    <td>{{ position }}</td>
+  </tr>
+  </tbody>
+</table>
+
+<form name="logout" method="post" action="agent/logout">
+  <p>
+    <button type="submit">Log out</button>
+  </p>
+</form>
+
+<h2>Queues:</h2>
+
+{{#unless queues.length}}
+  <h3>
+    No queues available for the agent.
+  </h3>
+  <p>
+    Ask the administrator to add you to the queue first.
+  </p>
+{{/unless}}
+
+{{#each queues}}
+  <div style="display: inline-block; border: 1px solid black; padding: 24px;">
+    <h3>{{ name }}</h3>
+    </tr>
+    <table>
+      <tbody>
+      <tr>
+        <td><b>Left in queue:</b></td>
+        <td id="queue-length-{{ id }}">{{ members.length }}</td>
+      </tbody>
+    </table>
+
+    <form name="logout" method="post" action="agent/addClientToQueue">
+      <input type="hidden" name="queueId" value="{{id}}">
+      <table>
+        <tbody>
+        <tr>
+          <td><input id="add-to-queue" type="text" name="clientId"></td>
+          <td>
+            <button type="submit">Add client to queue</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </form>
+
+    <form name="logout" method="post" action="agent/removeClientFromQueue">
+      <input type="hidden" name="queueId" value="{{id}}">
+      <table>
+        <tbody>
+        <tr>
+          <td><input id="add-to-queue" type="text" name="clientId"></td>
+          <td>
+            <button type="submit">Remove client from queue</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+{{/each}}
+
+{{#if queues.length}}
+  <script src="/agent.js" type="text/javascript"></script>
+{{/if}}
+

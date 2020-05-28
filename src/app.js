@@ -1,4 +1,5 @@
 import express from 'express';
+import session from 'express-session';
 import exhbs from 'express-handlebars';
 import bodyParser from 'body-parser';
 import cors from 'cors';
@@ -35,6 +36,12 @@ import api from './api';
 
     // Static dir
     app.use(express.static('public'));
+
+    app.use(
+      session({
+        secret: 'QUEUE_SESSION',
+      })
+    );
 
     // Connect to the database
     await connectToMongoose();

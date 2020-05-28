@@ -1,0 +1,26 @@
+<h1>Failed to add you to queue:</h1>
+
+<table>
+  <tr>
+    <td>
+      <b>Error:</b>
+    </td>
+    <td>
+      {{message}}
+    </td>
+  </tr>
+  {{#if reason}}
+    <tr>
+      <td>
+        <b>Reason:</b>
+      </td>
+      <td>
+        {{reason}}
+      </td>
+    </tr>
+  {{/if}}
+</table>
+
+<p>
+  <a href="/client">Go back to queues</a>
+</p>
